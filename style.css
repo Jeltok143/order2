@@ -1,0 +1,471 @@
+@charset "UTF-8";
+
+.section__calc__chehol {
+  overflow-y: hidden;
+  padding: 70px 0 120px; }
+  .section__calc__chehol * {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none; }
+  .section__calc__chehol .section__caption {
+    font-family: "Exo2Bold",sans-serif;
+    font-size: 48px;
+    text-align: center;
+    position: relative;
+    line-height: 1.2;
+    padding: 10px 0; }
+    .section__calc__chehol .section__caption:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 36px;
+      height: 2px;
+      background: #d50032;
+      left: 50%;
+      margin-left: -18px;
+      top: 0; }
+  .section__calc__chehol .section__content__calc {
+    position: relative;
+    margin-top: 70px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 60px 60px 30px;
+    justify-content: flex-end; }
+    .section__calc__chehol .section__content__calc:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      min-height: 400px;
+      width: 5000px;
+      right: 0;
+      background: #fbe5ea;
+      border-radius: 20px;
+      top: 0; }
+    .section__calc__chehol .section__content__calc .img-chehol {
+      position: absolute;
+      z-index: 5;
+      display: flex;
+      justify-content: flex-end;
+      width: 730px;
+      right: 50%;
+      top: -50px; }
+  .section__calc__chehol .chehol__form {
+    position: relative;
+    z-index: 5;
+    width: 50%; }
+  .section__calc__chehol .table .row__table {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center; }
+    .section__calc__chehol .table .row__table .coll_1 {
+      width: 40%; }
+    .section__calc__chehol .table .row__table .coll_2 {
+      width: 60%; }
+    .section__calc__chehol .table .row__table .title {
+      font-family: Exo2Medium,sans-serif;
+      font-size: 18px; }
+  .section__calc__chehol .select-form {
+    position: relative;
+    width: 100%; }
+  .section__calc__chehol .selected {
+    min-height: 40px;
+    padding: 3px 15px 5px;
+    color: #949494;
+    font-size: 14px;
+    font-family: Exo2Medium,sans-serif;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative; }
+    .section__calc__chehol .selected:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: url("../img/left-and-right-arrows.png") center/cover;
+      width: 13px;
+      height: 8px;
+      right: 15px;
+      top: 50%;
+      margin-top: -4px;
+      z-index: 1; }
+  .section__calc__chehol i {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    margin-right: 8px; }
+  .section__calc__chehol .select-ul {
+    display: none;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    position: absolute;
+    font-family: Exo2Medium,sans-serif;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0px 8px 13px 0px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 7px 30px 7px 15px;
+    min-height: 40px; }
+    .section__calc__chehol .select-ul li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      padding: 3px 0;
+      margin-bottom: 4px;
+      cursor: pointer; }
+    .section__calc__chehol .select-ul.select-ul-type-2 li {
+      position: relative; }
+      .section__calc__chehol .select-ul.select-ul-type-2 li .name.selected-li:after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 2;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        left: 0px;
+        border: 2px solid #d50032;
+        top: 4px; }
+    .section__calc__chehol .select-ul.select-ul-type-1 li .name {
+      position: relative;
+      padding-left: 23px; }
+      .section__calc__chehol .select-ul.select-ul-type-1 li .name.selected-li:after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 1;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #d50032;
+        left: 4px;
+        top: 8px; }
+      .section__calc__chehol .select-ul.select-ul-type-1 li .name:before {
+        width: 14px;
+        height: 14px;
+        background: #fff;
+        border-radius: 50%;
+        content: '';
+        display: block;
+        position: absolute;
+        border: 2px solid #fce9ed;
+        left: 0;
+        top: 4px; }
+      .section__calc__chehol .select-ul.select-ul-type-1 li .name span {
+        color: #949494;
+        font-size: 14px; }
+    .section__calc__chehol .select-ul:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: url("../img/left-and-right-arrows.png") center/cover;
+      width: 13px;
+      height: 8px;
+      right: 15px;
+      top: 15px;
+      z-index: 1;
+      transform: rotate(180deg); }
+  .section__calc__chehol .rows-checks {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    .section__calc__chehol .rows-checks .item-check {
+      width: auto;
+      margin-bottom: 25px;
+      min-width: 210px; }
+      .section__calc__chehol .rows-checks .item-check input {
+        display: none; }
+        .section__calc__chehol .rows-checks .item-check input:checked + label:after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 11px;
+          height: 7px;
+          border-bottom: 1px solid #d50032;
+          border-left: 1px solid #d50032;
+          z-index: 2;
+          transform: rotate(-45deg);
+          top: 4px;
+          left: 5px; }
+      .section__calc__chehol .rows-checks .item-check label {
+        font-family: Exo2Medium,sans-serif;
+        font-size: 18px;
+        color: #000;
+        position: relative;
+        cursor: pointer;
+        padding-left: 30px;
+        display: inline-block; }
+        .section__calc__chehol .rows-checks .item-check label .span-into-label {
+        	  position: absolute;
+		    left: 31px;
+		    top: -21px;
+		    color: #d50032;
+        }
+        .section__calc__chehol .rows-checks .item-check label span {
+          font-size: 14px;
+          color: #96787f; }
+        .section__calc__chehol .rows-checks .item-check label:before {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          top: 0;
+          background: #fff;
+          width: 20px;
+          height: 20px;
+          z-index: 1; }
+  .section__calc__chehol .price-end {
+    margin-top: 55px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end; }
+    .section__calc__chehol .price-end .flex {
+      width: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center; }
+    .section__calc__chehol .price-end .price {
+      font-family: Exo2Bold,sans-serif;
+      font-size: 30px;
+      margin-right: 75px; }
+    .section__calc__chehol .price-end .submit-form {
+      color: #fff;
+      background: #d50032;
+      height: 44px;
+      padding: 2px 47px 2px 20px;
+      border-radius: 30px;
+      border: 0;
+      font-family: Exo2Bold,sans-serif;
+      font-size: 14px;
+      cursor: pointer;
+      text-transform: uppercase;
+      position: relative;
+      outline: none; }
+      .section__calc__chehol .price-end .submit-form:focus {
+        outline: none; }
+      .section__calc__chehol .price-end .submit-form:after {
+        content: '';
+        display: block;
+        position: absolute;
+        background: url("../img/arrows.png") center/cover;
+        width: 13px;
+        height: 11px;
+        right: 20px;
+        top: 50%;
+        margin-top: -5px;
+        z-index: 1; }
+  .section__calc__chehol .img-chehol img {
+    width: 100%; }
+    .section__calc__chehol .img-canvas > div{
+    	top: 0;
+    	left: 0;
+    } 
+  .section__calc__chehol .img-chehol .img-base {
+    position: relative;
+    z-index: 1;
+    width: 100%; }
+  .section__calc__chehol .img-chehol .img-yzor {
+    position: absolute;
+    z-index: 2;
+    width: 100%; }
+  .section__calc__chehol .img-chehol .img-center {
+    position: absolute;
+    z-index: 3;
+    width: 100%; }
+  .section__calc__chehol .img-chehol .border-img {
+    position: absolute;
+    width: 100%;
+    z-index: 4; }
+    .section__calc__chehol .img-chehol .border-img .border-1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 5; }
+    .section__calc__chehol .img-chehol .border-img .border-2 {
+      position: absolute;
+      top: 0;
+      z-index: 6; }
+    .section__calc__chehol .img-chehol .border-img .border-3 {
+      position: absolute;
+      top: 0;
+      z-index: 7; }
+  .section__calc__chehol .img-chehol .img-head {
+    position: absolute;
+    z-index: 8;
+    width: 100%; }
+  .section__calc__chehol .img-chehol .img-romb-head {
+    position: absolute;
+    width: 100%;
+    z-index: 10; }
+  .section__calc__chehol .img-chehol .img-cut-head,
+  .section__calc__chehol .img-chehol .img-cut-down,
+  .section__calc__chehol .img-chehol .img-cut-shirt {
+    position: absolute;
+    z-index: 9;
+    width: 100%; }
+  .section__calc__chehol .img-chehol .img-border-cut {
+    position: absolute;
+    z-index: 5;
+    width: 100%; }
+.section__calc__chehol .img-canvas div.img-wotermark {
+	    position: absolute;
+    width: 200px;
+    z-index: 100;
+    top: 36%;
+    left: 50%;
+    margin-left: -45px;
+}
+.section__calc__chehol .img-chehol .img-seam {
+	 position: absolute;
+    z-index: 8;
+    width: 100%; 
+}
+.section__calc__chehol .img-chehol .img-seam-border {
+	position: absolute;
+    z-index: 8;
+    width: 100%; 
+}
+
+.consultation .consult-form .form-inputs .input-wrap.input-wrap__half {
+	    width: -webkit-calc(50% - 5px);
+    width: calc(50% - 5px);
+}
+
+.consultation .consult-form .form-inputs .input-wrap.input-wrap__half select {
+	    font-family: "Exo2Regular", sans-serif;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: background 9999s ease;
+    -o-transition: background 9999s ease;
+    transition: background 9999s ease;
+    border: 1px solid #e1e1e1;
+    outline: none;
+	    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    padding-left: 40px;
+    padding-right: 15px;
+}
+.consultation .consult-form .form-inputs .input-wrap.input-wrap__half * {
+	outline: none;
+}
+.consultation .select2-container .select2-selection--single {
+	    height: 40px;
+	    border: 1px solid #e1e1e1;
+	    border-radius: 10px;
+}
+.consultation .select2-container .select2-selection--single .select2-selection__rendered {
+	    line-height: 38px;
+	
+}
+.select2-container--default .select2-selection--single .select2-selection__placeholder {
+	  color: #a9a9a9;
+	  padding-left: 20px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+	height: 40px;
+	    right: 7px;
+
+}
+.consultation .select2-container .select2-selection--single .select2-selection__rendered .select2-selection__placeholder {
+	
+}
+.chechol-ajax-loading {
+	   position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.4);
+    z-index: 10000;
+    display: none;
+}
+.chechol-ajax-loading .img{
+	position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chechol-ajax-loading img{
+	    width: 100px;
+}
+
+
+@media screen and (max-width: 992px) {
+	.section__calc__chehol {
+		width: 100%;
+		margin-top: 40px;
+		overflow: hidden;
+	}
+	.section__calc__chehol .section__content__calc .img-chehol {
+		position: relative;
+		width: 100%;
+		top: 0;
+		right: 0;
+	}
+	.section__calc__chehol .section__content__calc:after {
+		    right: -300px;
+	}
+	.section__calc__chehol .chehol__form {
+		width: 100%;
+	}
+	.section__calc__chehol .price-end .flex {
+		width: 100%;
+		    justify-content: flex-end;
+	}
+	.section__calc__chehol .price-end .flex {
+		    flex-direction: column;
+	}
+	.section__calc__chehol .price-end .price {
+		margin-right: 0;
+    margin-bottom: 40px;
+    line-height: 1.3;
+    text-align: center;
+	}
+		.section__calc__chehol .price-end .price span{
+			    white-space: nowrap;
+		}
+}
+@media screen and (max-width: 550px) {
+	.section__calc__chehol .table .row__table {
+		    flex-direction: column;
+    align-items: flex-start;
+	}
+	.section__calc__chehol .table .row__table .coll_1 {
+		    width: 100%;
+    margin-bottom: 10px;
+	}
+	.section__calc__chehol .table .row__table .coll_2 {
+		width: 100%;
+	}
+	.section__calc__chehol .price-end .price {
+		margin-right: 0;
+		margin-bottom: 30px;
+	}
+	.section__calc__chehol .price-end .flex {
+		 flex-direction: column;
+	}
+	.section__calc__chehol {
+		padding: 50px 0;
+	}
+	.section__calc__chehol .section__content__calc {
+		padding: 30px;
+	}
+	.section__calc__chehol .img-canvas div.img-wotermark {
+		width: 115px;
+	}
+}
+
+/*# sourceMappingURL=style.css.map */

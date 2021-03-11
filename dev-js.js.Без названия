@@ -1,0 +1,101 @@
+$(function () {
+
+    $('.section__care__slider').slick({
+        slidesToShow: 1,
+        prevArrow: $('.section__care__slider__wrap .btns button.prev'),
+        nextArrow: $('.section__care__slider__wrap .btns button.next'),
+
+    });
+
+
+    $('.lucky__slider').slick({
+        slidesToShow: 2,
+        prevArrow: $('#arrows-lucky-slider .arrow-prev'),
+        nextArrow: $('#arrows-lucky-slider .arrow-next'),
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 1,
+                }
+            }
+
+        ]
+    });
+
+    //color tabs
+    $('.tabs-filter li').click(function (e) {
+        e.preventDefault();
+
+        const colorSliders = $('.sliders .color-box-slider');
+        $('.tabs-filter li a').removeClass('active');
+        $(this).children('a').addClass('active');
+
+        const elNum = $(this).index();
+        colorSliders.removeClass('active');
+        colorSliders.eq(elNum).addClass('active')
+
+        $('.color-box-slider .popup-slider').eq(elNum).slick('refresh');
+    });
+
+    $('.color-box-slider .popup-slider').each(function (e) {
+        $(this).slick({
+            slidesToShow: 6,
+            slidesToScroll: 3,
+            prevArrow: $(this).closest('.color-box-slider').find('button.prev'),
+            nextArrow: $(this).closest('.color-box-slider').find('button.next'),
+            responsive: [
+                {
+                    breakpoint: 1230,
+                    settings: {
+                        slidesToShow: 5,
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                    }
+                },
+                {
+                    breakpoint: 580,
+                    settings: {
+                        slidesToShow: 2,
+                    }
+                }
+
+            ]
+        });
+    });
+
+    // function formatColorBasket (item) {
+    //     if (!item.id) {
+    //         return item.text;
+    //     }
+    //     var imgUrl = $(item.element).data('image');
+    //     var $item = $(
+    //         '<span class="select2-img-basket"><span class="img"><img src="' + imgUrl + '" class="img-color" /></span><span class="name">' + item.text + '</span></span>'
+    //     );
+    //     return $item;
+    // };
+    //
+    // var product_color_basket = $(".product-list-color-basket .select-color");
+    // product_color_basket.select2({
+    //     placeholder: "",
+    //     templateResult: formatColorBasket,
+    //     width: '100%',
+    //     minimumResultsForSearch: -1
+    // });
+    //
+    // $('#msCart .table_update .color-selected > .name').click(function(e){
+    // 	e.preventDefault();
+    // 	$(this).closest('.color').find('.product-list-color-basket').show();
+    // 	product_color_basket.select2('open');
+    // });
+    //
+    // product_color_basket.on('.filter-color-all:close', function(e){
+    // 	var tg = $(e.target);
+    // 	tg.closest('.product-list-color-basket').hide();
+    // });
+    //
+});

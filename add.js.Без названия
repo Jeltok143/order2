@@ -1,0 +1,635 @@
+$(function () {
+
+    AjaxForm.Message.success = function () {
+    };
+
+    function calculateForm() {
+        var body = 0;
+        var material = 0;
+        var design = 0;
+
+        switch ($("select[name=body]").val()) {
+            case '1':
+            case '2':
+            case '3':
+                body = 5500;
+                break;
+            case '4':
+            case '5':
+                body = 6500;
+                break;
+            case '6':
+                body = 8000;
+                break;
+            default:
+                //alert('Не выбран "Тип кузова"');
+                return;
+        }
+
+
+        switch ($("select[name=material]").val()) {
+            case '1':
+            case '2':
+                material = 0;
+                break;
+            case '3':
+                material = 1000;
+                break;
+            case '4':
+                material = 1000;
+                break;
+            default:
+                //alert('Не выбран материал');
+                return;
+        }
+
+        switch ($("select[name=design]").val()) {
+            case '1':
+                design = 0;
+                break;
+            case '2':
+                design = 0;
+                break;
+            case '3':
+                design = 300;
+                break;
+            case '4':
+                design = 1500;
+                break;
+            case '5':
+                design = 2500;
+                break;
+            default:
+                //alert('Не выбран дизайн');
+                return;
+        }
+
+        var string_cost = 0;
+        var shirt_cost = 0;
+        var cut_top_cost = 0;
+        var cut_bottom_cost = 0;
+
+        var string_text = "";
+        var shirt_text = "";
+        var cut_top_text = "";
+        var cut_bottom_text = "";
+
+
+        if ($("input[name=decor-string]").prop("checked")) {
+            string_cost = 1000;
+            string_text = "Декоративная строчка: " + string_cost + "; "
+        }
+
+
+        if ($("input[name=cut-shirt]").prop("checked")) {
+            shirt_cost = 600;
+            shirt_text = "Вырез 'Майка': " + shirt_cost + "; "
+        }
+
+
+        if ($("input[name=cut-top]").prop("checked")) {
+            cut_top_cost = 600;
+            cut_top_text = "Отрезной верх: " + cut_top_cost + "; "
+        }
+
+        if ($("input[name=cut-bottom]").prop("checked")) {
+            cut_bottom_cost = 600;
+            cut_bottom_text = "Отрезной верх': " + cut_bottom_cost + "; "
+        }
+
+        var summ = body + material + design + string_cost + shirt_cost + cut_top_cost + cut_bottom_cost;
+
+        $(".form-total span").html(summ + ' ₽');
+        $("#form-order .form-total, #calc .form-total").delay(500).show();
+
+        //add to calcparam input
+        var selectedBody = $("select[name=body] option:selected").text();
+        var selectedMaterial = $("select[name=material] option:selected").text();
+        var selectedDesign = $("select[name=design] option:selected").text();
+
+        var calcparam =
+            "Кузов: " + selectedBody + "; " +
+            "Материал: " + selectedMaterial + "; " +
+            "Дизайн: " + selectedDesign + "; " +
+            string_text +
+            shirt_text +
+            cut_top_text +
+            cut_bottom_text
+        ;
+        $("input[name=calcparam]").val(calcparam);
+    }
+
+
+    //calc trigger '.orderButton'
+    $('.orderButton').click(function () {
+        if ($('#calc')[0].checkValidity()) {
+            calculateForm();
+            $.magnificPopup.open({
+                mainClass: 'mfp-fade',
+                removalDelay: 400,
+                items: {
+                    src: '#form-order',
+                    type: 'inline'
+                },
+                callbacks: {
+
+                    close: function () {
+                        $(".form-total").delay(500).hide();
+                    }
+                }
+            });
+        }
+    });
+
+    //calculate trigger
+    $("#calc-sum").click(function () {
+        calculateForm();
+    });
+
+
+    //example click '.order-btn'
+    $(document).on("click", ".order-btn, .btn-popup", function (e) {
+        e.preventDefault();
+
+        //set price in form
+        var price = $(this).parent().prev().find(".item-price").text();
+
+        //add param to letter
+        const color = $(this).data('color');
+        var img = $(this).data('img');
+
+
+        //if img empty -> check img in other path
+        if (img == '') {
+            img = $(this).closest('.example-item').find('.first').attr('src');
+        }
+
+        $('#form-order input[name=color]').val(color);
+        $('#form-order input[name=img]').val(img);
+
+        if (price) {
+            $(".form-total span").html(price);
+        } else {
+            $(".form-total").html('');
+        }
+
+
+        $(this).magnificPopup({
+            mainClass: 'mfp-fade',
+            removalDelay: 400,
+            items: {
+                src: '#form-order',
+                type: 'inline'
+            }
+        }).magnificPopup('open');
+    });
+
+
+    //mfilter reset button
+    $("#mse2_filters button[type=reset]").click(function () {
+        $('div.select-styled').text('Не выбрана');
+    });
+
+    //clear field FORMIT
+    $('#form-order input[name="address"]').removeAttr('value');
+    document.querySelector('[name="address"]').setAttribute("value", "");
+
+
+    // material main-page Popup Trigger
+    // $('.button-material').click(function() {
+    //     var item = $(this).prev().find($( ".wrapper-form" ));
+    //     //console.log(item);
+    //     $.magnificPopup.open({
+    //         mainClass: 'mfp-fade',
+    //         removalDelay: 0,
+    //         items: {
+    //             src: item,
+    //             type: 'inline'
+    //         },
+    //     });
+    // });
+
+    $('.example-item.color .link').magnificPopup({
+        type: 'image',
+        mainClass: 'mfp-fade',
+        removalDelay: 0,
+        titleSrc: 'title'
+
+    });
+
+
+    //func Slider/Container -- examples main page & main partition
+    function exampleInit() {
+        // Examples Popup Cloned from Examples Slider/Container
+        if ($('.examples-slider').length) {
+            var cloneSource = $('.examples-slider');
+        } else if ($('.examples-container.on').length) {
+            var cloneSource = $('.examples-container.on');
+        } else {
+            var cloneSource = false;
+        }
+
+        if (cloneSource != false) {
+            cloneSource.clone(true, true).removeClass().removeAttr('id').addClass('popup-slider').wrap('<div/>').parent().addClass('examples-popup mfp-hide').insertBefore(cloneSource);
+
+            // Slider -> Examples Popup
+            $('.popup-slider').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false,
+                infinite: true
+            });
+
+
+            // owl-carusel with thumb
+            $(".popup-slider .owl-carousel").owlCarousel({
+                mouseDrag: false,
+                touchDrag: false,
+                pullDrag: false,
+                freeDrag: false,
+
+                dots: false,
+                nav: false,
+                autoplay: false,
+                loop: false,
+
+                items: 1,
+                thumbs: true,
+                thumbImage: false,
+                thumbsPrerendered: true,
+                thumbContainerClass: 'owl-thumbs',
+                thumbItemClass: 'owl-thumb-item'
+            });
+
+
+            // Make All Examples in Popup Visible
+            $('.popup-slider .example-item, .popup-slider .owl-carousel img').removeClass('d-none');
+
+
+            // Example Items Sync With Popup Slider
+            $('.examples-container .example-item').each(function () {
+                $(this).attr('data-slick-index', $(this).index());
+            });
+
+
+            // Examples Popup Trigger
+            $('.examples-slider .popup-trigger, .examples-container .popup-trigger').click(function () {
+
+                var currentSlide = $(this).parents('.example-item').attr('data-slick-index');
+                $.magnificPopup.open({
+                    preloader: true,
+                    mainClass: 'mfp-fade',
+                    removalDelay: 200,
+                    items: {
+                        src: '.examples-popup',
+                        type: 'inline'
+                    },
+                    callbacks: {
+                        open: function () {
+                            $('.popup-slider').slick('slickGoTo', currentSlide).slick('refresh');
+
+
+                        },
+                        close: function () {
+                            //$('.examples-popup .example-gallery').slick('destroy');
+                        }
+                    }
+                });
+            });
+
+            // Examples Slider Nav
+            $('.examples-slider').on('init reInit beforeChange', function (event, slick, currentSlide, nextSlide) {
+                var current = (nextSlide ? nextSlide / $('.examples-slider .slick-active').length : 0) + 1;
+                var total = Math.ceil(slick.slideCount / $('.examples-slider .slick-active').length);
+                $('.examples-paging .paging-current').text(current);
+                $('.examples-paging .paging-total').text(' из ' + total);
+                // Move Slider Arrows to Nav Block
+                if ($('.examples-nav').not(':has(.slick-arrow)')) {
+                    $('.examples-slider .slick-prev').prependTo('.examples-nav');
+                    $('.examples-slider .slick-next').appendTo('.examples-nav');
+                }
+            });
+
+
+            // Examples Main Slider
+            $('.examples-slider').slick({
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                arrows: true,
+                dots: false,
+                infinite: false,
+                responsive:
+                    [
+                        {
+                            breakpoint: 1230,
+                            settings: {
+                                slidesToShow: 3,
+                                slidesToScroll: 3
+                            }
+                        },
+                        {
+                            breakpoint: 992,
+                            settings: {
+                                slidesToShow: 2,
+                                slidesToScroll: 2
+                            }
+                        },
+                        {
+                            breakpoint: 576,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1
+                            }
+                        }
+                    ]
+            });
+        }
+    }
+
+    //примеры работ на главной и в разделе
+    exampleInit();
+
+
+    //отзывы на главной
+    if ($('.reviews-slider.main').length > 0) {
+
+        // Reviews Slider Nav
+        $('.reviews-slider').on('init reInit beforeChange', function (event, slick, currentSlide, nextSlide) {
+            var current = (nextSlide ? nextSlide / $('.reviews-slider .slick-active').length : 0) + 1;
+            var total = Math.ceil(slick.slideCount / $('.reviews-slider .slick-active').length);
+            $('.reviews-paging .paging-current').text(current);
+            $('.reviews-paging .paging-total').text(' из ' + total);
+            // Move Slider Arrows to Nav Block
+            if ($('.reviews-nav').not(':has(.slick-arrow)')) {
+                $('.reviews-slider .slick-prev').prependTo('.reviews-nav');
+                $('.reviews-slider .slick-next').appendTo('.reviews-nav');
+            }
+        });
+
+        // Reviews Slider
+        $('.reviews-slider').slick({
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            arrows: true,
+            dots: false,
+            infinite: false,
+            responsive:
+                [
+                    {
+                        breakpoint: 1230,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+        });
+    }
+
+
+    //buy button in product
+    $('.buy-product').click(function (e) {
+        e.preventDefault();
+
+        $('.consult-form input[name=calcparam]').val($("h1").text());
+        $('.form-total').hide();
+
+        $.magnificPopup.open({
+            mainClass: 'mfp-fade',
+            removalDelay: 400,
+            items: {
+                src: '#form-order',
+                type: 'inline'
+            }
+        });
+    });
+
+
+    //product-gallery sticky JS
+    var sticky = new Sticky('.product-gallery', {
+        'marginTop': 95,
+        'stickyFor': 1000
+    });
+
+    // обработка примеров работ после применения фильтра
+    $(document).on('mse2_load', function (e, data) {
+        //delete old cloned item
+        $('.examples-popup').remove();
+
+        //destroy old slick
+        //$('.popup-slider').slick('unslick');
+
+        exampleInit();
+    });
+
+
+    //input mask for phone
+    $("input[name='phone']").inputmask('+7(999) 999-99-99');
+
+
+    //'select' in Category - marka & model
+    $('#select-mm').on('change', function () {
+        var url = $(this).find(':selected').data('url');
+        window.location.replace(url);
+    });
+
+
+    //color popup
+    $('.color-box .popup-trigger, .color-popup').click(function (event) {
+        event.preventDefault();
+
+        var colorBox = '#color-list-' + $(this).data('id');
+
+        $.magnificPopup.open({
+            preloader: true,
+            mainClass: 'mfp-fade',
+            removalDelay: 200,
+            items: {
+                src: colorBox,
+                type: 'inline'
+            },
+            callbacks: {
+                open: function () {
+                    // $('.popup-slider').slick('slickGoTo', currentSlide).slick('refresh');
+                    $('.popup-slider').slick({
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: true,
+                        dots: false,
+                        infinite: true,
+                        centerMode: true
+                    });
+
+
+                },
+                close: function () {
+                    //$('.examples-popup .example-gallery').slick('destroy');
+                }
+            }
+        });
+    });
+
+
+    // PRODUCT COLOR SELECT
+    // PRODUCT COLOR SELECT
+    function formatColor(item) {
+        if (!item.id) {
+            return item.text;
+        }
+        var imgUrl = $(item.element).data('image');
+        var $item = $(
+            '<img src="' + imgUrl + '" class="img-color" /><span>' + item.text + '</span>'
+        );
+        return $item;
+    }
+
+
+    var product_color = $(".product-list-color .select-color");
+    product_color.select2({
+        placeholder: "Пожалуйста, выберите цвет",
+        templateResult: formatColor,
+        width: '100%'
+    });
+
+    //set param from select to input=color and enable button
+    product_color.on("select2:select", function (e) {
+        var data = e.params.data;
+        var text = data.text;
+        var img = data.element.getAttribute('data-image');
+
+        if (text) {
+            //add color to input + enable button
+            $("#msProduct .ms2_form input[name='options[color]']").val(text);
+            $("#msProduct .ms2_form input[name='options[color_url]']").val(img);
+            $('#msProduct .ms2_form button').prop('disabled', false);
+        }
+    });
+
+
+    //btn buy bottom
+    $('.buy-btn2').click(function (event) {
+        event.preventDefault();
+        $('#msProduct .ms2_form button').click();
+    });
+
+    //check selected color
+    $('#msProduct .ms2_form button').click(function (event) {
+
+        var el = $("#msProduct .ms2_form input[name='options[color]']").val();
+        if (el === "") {
+            event.preventDefault();
+            var tooltip = $(this).data('tooltip');
+
+            $.magnificPopup.open({
+                preloader: true,
+                mainClass: 'mfp-fade',
+                removalDelay: 200,
+                items: {
+                    src: '#color-pick',
+                    type: 'inline'
+                }
+            });
+        }
+    });
+    // END of PRODUCT COLOR SELECT
+
+
+    // cart & product cart reload
+    if (typeof miniShop2 !== 'undefined') {
+        miniShop2.Callbacks.Cart.add.response.success = function () {
+            document.location = '/cart/';
+        };
+    }
+
+
+    //dropdown disable click
+    $('li[rel="dropdown-new"]').click(function (e) {
+        if ($(this).attr('href') == "#") {
+            e.preventDefault();
+        }
+    });
+
+
+    //feedback stars
+    $(".star-rating").each(function () {
+        var rating = $(this).data("rating");
+        if (rating < 5) {
+            console.log($(this).children());
+            for (var i = 0; i < (5 - rating); i++) {
+                $(this).children(":first").remove();
+            }
+        }
+    });
+
+
+    // TinkoffPayForm 'receipt'
+    const formPay = $("#tinkoffPay");
+
+    formPay.submit(function (event) {
+        event.preventDefault();
+        if (formPay[0].checkValidity()) {
+
+            const form_amount = formPay.find('input[name="amount"]').val()
+            const receipt = {
+                "Email": formPay.find('input[name="email"]').val(),
+                "Phone": formPay.find('input[name="phone"]').val(),
+                "Taxation": "usn_income",
+                "Items": [{"Name": "Изготовление чехлов на сидения из искусственной кожи", "Price": form_amount * 100, "Quantity": 1, "Amount": form_amount * 100, "Tax": "none"}]
+            }
+            formPay.find('input[name="receipt"]').val( JSON.stringify(receipt) );
+            pay(this); // tinkoff js function
+        }
+    });
+
+});
+
+
+//CART address fields on/off
+if ($("#delivery_1").is(":checked")) {
+    $('#address').hide();
+}
+$("#delivery_1").on("click", function () {
+    $('#address').hide();
+});
+
+$("#delivery_2").on("click", function () {
+    $('#address').show();
+});
+
+
+//FORMIT ajax popup Success
+$(document).on('af_complete', function (event, response) {
+    var form = response.form;
+    if (response.success) {
+        $.magnificPopup.open({
+            items: {
+                src: '#thank-you'
+            },
+            type: 'inline',
+            mainClass: 'mfp-fade',
+            removalDelay: 400
+        });
+    }
+});
+
+
+//test fn -- REM this
+function scr2() {
+    let offsetTop = !$('#no-home-page-id').length ? 1325 : 250;
+
+    console.log (offsetTop);
+
+    html2canvas($('#img-chehol .img-canvas')[0], {
+        width: 700,
+        height: 750,
+        windowWidth: 1900,
+        scrollX: 0,
+        scrollY: 0,
+        backgroundColor: '#ffffff',
+        x: 300,
+        y: offsetTop,
+    }).then(function (canvas) {
+        document.body.appendChild(canvas);
+    });
+}

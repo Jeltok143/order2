@@ -1,0 +1,180 @@
+var AjaxForm = {
+
+    initialize: function (afConfig) {
+        if (!jQuery().ajaxForm) {
+            document.write('<script src="' + afConfig['assetsUrl'] + 'js/lib/jquery.form.min.js"><\/script>');
+        }
+        if (!jQuery().jGrowl) {
+            document.write('<script src="' + afConfig['assetsUrl'] + 'js/lib/jquery.jgrowl.min.js"><\/script>');
+        }
+
+        $(document).ready(function () {
+            $.jGrowl.defaults.closerTemplate = '<div>[ ' + afConfig['closeMessage'] + ' ]</div>';
+        });
+
+        $(document).off('submit', afConfig['formSelector']).on('submit', afConfig['formSelector'], function (e) {
+            $(this).ajaxSubmit({
+                dataType: 'json',
+                data: {pageId: afConfig['pageId']},
+                url: afConfig['actionUrl'],
+                beforeSerialize: function (form) {
+                    form.find(':submit').each(function () {
+                        if (!form.find('input[type="hidden"][name="' + $(this).attr('name') + '"]').length) {
+                            $(form).append(
+                                $('<input type="hidden">').attr({
+                                    name: $(this).attr('name'),
+                                    value: $(this).attr('value')
+                                })
+                            );
+                        }
+                    })
+                },
+                beforeSubmit: function (fields, form) {
+                    //noinspection JSUnresolvedVariable
+                    if (typeof(afValidated) != 'undefined' && afValidated == false) {
+                        return false;
+                    }
+                    form.find('.error').html('');
+                    form.find('.error').removeClass('error');
+                    form.find('input,textarea,select,button').attr('disabled', true);
+                    return true;
+                },
+                success: function (response, status, xhr, form) {
+                    form.find('input,textarea,select,button').attr('disabled', false);
+                    response.form = form;
+                    $(document).trigger('af_complete', response);
+                    if (!response.success) {
+                        AjaxForm.Message.error(response.message);
+                        if (response.data) {
+                            var key, value, focused;
+                            for (key in response.data) {
+                                if (response.data.hasOwnProperty(key)) {
+                                    if (!focused) {
+                                        form.find('[name="' + key + '"]').focus();
+                                        focused = true;
+                                    }
+                                    value = response.data[key];
+                                    form.find('.error_' + key).html(value).addClass('error');
+                                    form.find('[name="' + key + '"]').addClass('error');
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        AjaxForm.Message.success(response.message);
+                        form.find('.error').removeClass('error');
+                        form[0].reset();
+                        //noinspection JSUnresolvedVariable
+                        if (typeof(grecaptcha) != 'undefined') {
+                            //noinspection JSUnresolvedVariable
+                            grecaptcha.reset();
+                        }
+                    }
+                }
+            });
+            e.preventDefault();
+            return false;
+        });
+
+        $(document).on('keypress change', '.error', function () {
+            var key = $(this).attr('name');
+            $(this).removeClass('error');
+            $('.error_' + key).html('').removeClass('error');
+        });
+
+        $(document).on('reset', afConfig['formSelector'], function () {
+            $(this).find('.error').html('');
+            AjaxForm.Message.close();
+        });
+    }
+
+};
+
+
+//noinspection JSUnusedGlobalSymbols
+AjaxForm.Message = {
+    success: function (message, sticky) {
+        if (message) {
+            if (!sticky) {
+                sticky = false;
+            }
+            $.jGrowl(message, {theme: 'af-message-success', sticky: sticky});
+        }
+    },
+    error: function (message, sticky) {
+        if (message) {
+            if (!sticky) {
+                sticky = false;
+            }
+            $.jGrowl(message, {theme: 'af-message-error', sticky: sticky});
+        }
+    },
+    info: function (message, sticky) {
+        if (message) {
+            if (!sticky) {
+                sticky = false;
+            }
+            $.jGrowl(message, {theme: 'af-message-info', sticky: sticky});
+        }
+    },
+    close: function () {
+        $.jGrowl('close');
+    },
+};
+
+$(function(){
+    $('body').on('click', '[type="submit"]', function(){
+        var adres, goods='',
+        $form = $(this).closest('form'),
+        name = $form.find('[name="name"],[name="receiver"]').val(),
+        phone = $form.find('[type="tel"],[name="phone"]').val(),
+        email = $form.find('[type="email"],[name="email"]').val(),
+        comment = $form.find('[name="message"],[name="comment"]').val(),
+        goods = $form.find('[name="color"]').val();
+        if(goods == ''){goods = $form.find('[name="page"]').val();}
+        if(goods == undefined) {goods = '';}
+        var payment = $('[name="payment"]:checked').parent().text().trim(),
+        delivery = $('[name="delivery"]:checked').parent().text().replace(/\s+/g, ' '),
+        index = $form.find('#index').val(),
+        region = $form.find('#region').val(),
+        city = $form.find('#city').val(),
+        street = $form.find('#street').val(),
+        building = $form.find('#building').val(),
+        room = $form.find('#room').val();
+        if(index !== undefined){adres = index+'\n'+region+'\n'+city+'\n'+street+'\n'+building+'\n'+room;}
+        var total = $('#ms2_order_cost').text(),
+        total = total.replace(/[^-0-9]/gim,''),
+        visit = '';
+        var article, count, totalGoods;
+        var products = $('#msCart tbody tr');
+        for(var i = 1; i<products.length-1; i++){
+            article = $(products[i]).find('.title').text().replace(/\s+/g, ' ').trim();
+            count = $(products[i]).find('.color .name').text().trim();
+            totalGoods = $(products[i]).find('.mr-2').text().trim();
+            goods = goods + article + ' x ' + count + ' x ' + totalGoods + '\n';
+        }
+        if (typeof WBK !== 'undefined') {visit = WBK.settings.visitId;}
+        data = {
+            name:name,
+            phone:phone,
+            email:email,
+            comment:comment,
+            delivery:delivery,
+            adres:adres,
+            payment:payment,
+            goods:goods,
+            total:total,
+            visit:visit
+        };
+        $.ajax({
+            type: "POST",
+            url: document.location.protocol+"//sam.myenvy.ru/integrations/php2/carabas-auto/send.php",
+            data: data,
+            dataType: 'JSON',
+            cache: false,
+            success: function(data) {
+                console.log(data);
+            }
+        });
+    });
+});
