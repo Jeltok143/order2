@@ -68,61 +68,116 @@
 <body id="body" class="mm-wrapper" style="--envybox-btn-background-color:rgba(244,67,54,0.8);">
     <div id="m-menu-main" class="mm-menu mm-menu_offcanvas mm-menu_pagedim-black" aria-hidden="true">
         <div class="mm-panels">
-            <div id="menu-main" class="mm-panel mm-panel_opened">
-                <div class="mm-navbar mm-navbar_sticky"><a class="mm-navbar__title"><span>Меню</span></a></div>
+            <div id="menu-main" class="mm-panel mm-panel_opened-parent">
+                <div class="mm-navbar mm-navbar_sticky">
+                    <a class="mm-navbar__title">
+                        <span>Меню</span>
+                    </a>
+                </div>
                 <ul class="menu-list mm-listview">
+                    <li id="first-drop" class="menu-item mm-listitem" rel="dropdown-new">
+                        <a class="mm-btn mm-listitem__btn mm-listitem__text" href="../index.html">Главная
+                            <span
+                                class="mm-sronly">Открыть подменю
+                            </span>
+                        </a>
+                    </li>
                     <li class="menu-item mm-listitem" rel="dropdown-new">
+                        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="#">Каталог
+                            <span
+                                class="mm-sronly">Открыть подменю
+                            </span>
+                        </a>
+                        <ul class="dropdown mm-listview">
 
-
-
-
-
-
-
-                        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text"
-                            href="https://carabas-auto.ru/#mm-1">О нас<span class="mm-sronly">Открыть подменю</span></a>
+                            <li style="margin-left: 10px;" class="menu-item first mm-listitem">
+                                <a class="menu-link mm-listitem__text" href="../catalog.html">Чехлы на
+                                    сидения</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item first mm-listitem">
+                                <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/goods/sakvoyazh/">Сумка
+                                    органайзер</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;"  class="menu-item last mm-listitem">
+                                <a class="menu-link mm-listitem__text"
+                                    href="https://carabas-auto.ru/goods/nakidki-iz-alkantaryi/">Накидки из алькантары</a>
+                            </li>
+                        </ul>
                     </li>
 
                     <li class="menu-item mm-listitem" rel="dropdown-new">
 
-
-
-
-
-
                         <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text"
-                            href="https://carabas-auto.ru/#mm-2">Каталог<span class="mm-sronly">Открыть
-                                подменю</span></a>
+                            href="https://carabas-auto.ru/#mm-3">Материалы
+                            <span class="mm-sronly">
+                                Открыть подменю
+                            </span>
+                        </a>
+                        <ul class="dropdown mm-listview">
+
+                            <li style="margin-left: 10px;" class="menu-item first mm-listitem">
+                                <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/fabric/other/">Узоры</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item last mm-listitem">
+                                <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/fabric/palitra/">Цветовая
+                                    гамма</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item last mm-listitem">
+                                <a class="menu-link mm-listitem__text"
+                                    href="https://carabas-auto.ru/fabric/eco-leather/">ЭкоКожа</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item last mm-listitem">
+                                <a class="menu-link mm-listitem__text"
+                                    href="https://carabas-auto.ru/fabric/alkantra/">Алькантара</a>
+                            </li>
+        
+                        </ul>
                     </li>
-
-                    <li class="menu-item mm-listitem" rel="dropdown-new">
-
-
-
-
-
-
-                        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text"
-                            href="https://carabas-auto.ru/#mm-3">Материалы<span class="mm-sronly">Открыть
-                                подменю</span></a>
-                    </li>
-
 
                     <li class="menu-item mm-listitem">
                         <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/news-action/">Акции</a>
                     </li>
 
-
                     <li class="menu-item mm-listitem" rel="dropdown-new">
 
+                        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text" href="https://carabas-auto.ru/#mm-4">Покупателям
+                            <span class="mm-sronly">
+                                Открытьподменю
+                            </span>
+                        </a>
+                        <ul class="dropdown mm-listview">
 
-
-
-
-
-                        <a class="mm-btn mm-btn_next mm-listitem__btn mm-listitem__text"
-                            href="https://carabas-auto.ru/#mm-4">Покупателям<span class="mm-sronly">Открыть
-                                подменю</span></a>
+                            <li style="margin-left: 10px;" style="margin-left: 10px;" class="menu-item first mm-listitem">
+                                <a class="menu-link mm-listitem__text"
+                                    href="https://carabas-auto.ru/buyers/install/">Установка</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item mm-listitem">
+                                <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/buyers/payment/">Способы
+                                    оплаты</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item mm-listitem">
+                                <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/buyers/delivery/">Условия
+                                    доставки</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item last mm-listitem">
+                                <a class="menu-link mm-listitem__text"
+                                    href="https://carabas-auto.ru/buyers/garantii/">Гарантии</a>
+                            </li>
+        
+                            <li style="margin-left: 10px;" class="menu-item last mm-listitem">
+                                <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/about/why-we-are/">Чем
+                                    чехлы лучше?</a>
+                            </li>
+        
+                        </ul>
                     </li>
 
                     <li class="menu-item mm-listitem">
@@ -138,115 +193,90 @@
                     </li>
                 </ul>
             </div>
-            <div id="mm-1" class="mm-panel mm-hidden" aria-hidden="true">
-                <div class="mm-navbar mm-navbar_sticky"><a class="mm-btn mm-btn_prev mm-navbar__btn"
-                        href="https://carabas-auto.ru/#menu-main" aria-haspopup="true" aria-owns="menu-main"><span
-                            class="mm-sronly">Закрыть подменю</span></a><a class="mm-navbar__title"
-                        href="https://carabas-auto.ru/#menu-main" aria-hidden="true"><span>О нас</span></a></div>
-                <ul class="dropdown mm-listview">
-                    <li class="menu-item first mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/about/company/">О
-                            компании</a>
-                    </li>
-                    <li class="menu-item mm-listitem">
-                        <a class="menu-link mm-listitem__text"
-                            href="https://carabas-auto.ru/about/proizvodstvo/">Производство</a>
-                    </li>
-                    <li class="menu-item mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/job/">Вакансии</a>
-                    </li>
-                    <li class="menu-item last mm-listitem">
-                        <a class="menu-link mm-listitem__text"
-                            href="https://carabas-auto.ru/about/rekvizityi/">Реквизиты</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="mm-2" class="mm-panel mm-hidden" aria-hidden="true">
-                <div class="mm-navbar mm-navbar_sticky"><a class="mm-btn mm-btn_prev mm-navbar__btn"
-                        href="https://carabas-auto.ru/#menu-main" aria-haspopup="true" aria-owns="menu-main"><span
-                            class="mm-sronly">Закрыть подменю</span></a><a class="mm-navbar__title"
-                        href="https://carabas-auto.ru/#menu-main" aria-hidden="true"><span>Каталог</span></a></div>
-                <ul class="dropdown mm-listview">
-                    <li class="menu-item first mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/catalog/">Чехлы на
-                            сидения</a>
-                    </li>
-                    <li class="menu-item first mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/goods/sakvoyazh/">Сумка
-                            органайзер</a>
-                    </li>
-                    <li class="menu-item last mm-listitem">
-                        <a class="menu-link mm-listitem__text"
-                            href="https://carabas-auto.ru/goods/nakidki-iz-alkantaryi/">Накидки из алькантары</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="mm-3" class="mm-panel mm-hidden" aria-hidden="true">
-                <div class="mm-navbar mm-navbar_sticky"><a class="mm-btn mm-btn_prev mm-navbar__btn"
-                        href="https://carabas-auto.ru/#menu-main" aria-haspopup="true" aria-owns="menu-main"><span
-                            class="mm-sronly">Закрыть подменю</span></a><a class="mm-navbar__title"
-                        href="https://carabas-auto.ru/#menu-main" aria-hidden="true"><span>Материалы</span></a></div>
-                <ul class="dropdown mm-listview">
-                    <li class="menu-item first mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/fabric/other/">Узоры</a>
-                    </li>
-                    <li class="menu-item last mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/fabric/palitra/">Цветовая
-                            гамма</a>
-                    </li>
-                    <li class="menu-item last mm-listitem">
-                        <a class="menu-link mm-listitem__text"
-                            href="https://carabas-auto.ru/fabric/eco-leather/">ЭкоКожа</a>
-                    </li>
-                    <li class="menu-item last mm-listitem">
-                        <a class="menu-link mm-listitem__text"
-                            href="https://carabas-auto.ru/fabric/alkantra/">Алькантара</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="mm-4" class="mm-panel mm-hidden" aria-hidden="true">
-                <div class="mm-navbar mm-navbar_sticky"><a class="mm-btn mm-btn_prev mm-navbar__btn"
-                        href="https://carabas-auto.ru/#menu-main" aria-haspopup="true" aria-owns="menu-main"><span
-                            class="mm-sronly">Закрыть подменю</span></a><a class="mm-navbar__title"
-                        href="https://carabas-auto.ru/#menu-main" aria-hidden="true"><span>Покупателям</span></a></div>
-                <ul class="dropdown mm-listview">
-                    <li class="menu-item first mm-listitem">
-                        <a class="menu-link mm-listitem__text"
-                            href="https://carabas-auto.ru/buyers/install/">Установка</a>
-                    </li>
-                    <li class="menu-item mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/buyers/payment/">Способы
-                            оплаты</a>
-                    </li>
-                    <li class="menu-item mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/buyers/delivery/">Условия
-                            доставки</a>
-                    </li>
-                    <li class="menu-item last mm-listitem">
-                        <a class="menu-link mm-listitem__text"
-                            href="https://carabas-auto.ru/buyers/garantii/">Гарантии</a>
-                    </li>
-                    <li class="menu-item last mm-listitem">
-                        <a class="menu-link mm-listitem__text" href="https://carabas-auto.ru/about/why-we-are/">Чем
-                            чехлы лучше?</a>
-                    </li>
 
-                </ul>
+
+            <div id="mm-1" class="mm-panel mm-penel-opened" aria-hidden="true">
+                <div class="mm-navbar mm-navbar_sticky">
+
+                    <a class="mm-btn mm-btn_prev mm-navbar__btn" href="https://carabas-auto.ru/#menu-main"
+                        aria-haspopup="true" aria-owns="menu-main">
+                        <span class="mm-sronly">Закрыть подменю</span>
+                    </a>
+
+                    <a class="mm-navbar__title" href="https://carabas-auto.ru/#menu-main" aria-hidden="true">
+                        <span>О нас</span>
+                    </a>
+
+                </div>
             </div>
+
+
+            <div id="mm-2" class="mm-panel mm-hidden" aria-hidden="true">
+                <div class="mm-navbar mm-navbar_sticky">
+
+                    <a class="mm-btn mm-btn_prev mm-navbar__btn" href="https://carabas-auto.ru/#menu-main"
+                        aria-haspopup="true" aria-owns="menu-main">
+                        <span class="mm-sronly">Закрыть подменю</span>
+                    </a>
+
+                    <a class="mm-navbar__title" href="https://carabas-auto.ru/#menu-main" aria-hidden="true">
+                        <span>Каталог</span>
+                    </a>
+
+                </div>
+            </div>
+
+            <div id="mm-3" class="mm-panel mm-hidden" aria-hidden="true">
+                <div class="mm-navbar mm-navbar_sticky">
+
+                    <a class="mm-btn mm-btn_prev mm-navbar__btn" href="https://carabas-auto.ru/#menu-main"
+                        aria-haspopup="true" aria-owns="menu-main">
+                        <span class="mm-sronly">Закрыть подменю</span>
+                    </a>
+
+                    <a class="mm-navbar__title" href="https://carabas-auto.ru/#menu-main" aria-hidden="true">
+                        <span>Материалы</span>
+                    </a>
+                </div>
+            </div>
+
+            <div id="mm-4" class="mm-panel mm-hidden" aria-hidden="true">
+                <div class="mm-navbar mm-navbar_sticky">
+
+                    <a class="mm-btn mm-btn_prev mm-navbar__btn" href="https://carabas-auto.ru/#menu-main"
+                        aria-haspopup="true" aria-owns="menu-main">
+                        <span class="mm-sronly">Закрыть подменю</span>
+                    </a>
+                    <a class="mm-navbar__title" href="https://carabas-auto.ru/#menu-main" aria-hidden="true">
+                        <span>Покупателям</span>
+                    </a>
+                </div>
+
+
+            </div>
+
+
         </div>
         <div class="mm-navbars_bottom">
             <div class="mm-navbar">
                 <div class="mm-custom-bottom">
-                    <div class="ya-rating"><iframe src="220822548879.html" width="150" height="50"
-                            frameborder="0"></iframe></div>
+                    <div class="ya-rating">
+                        <iframe src="220822548879.html" width="150" height="50" frameborder="0">
+
+                        </iframe>
+                    </div>
                     <div class="mm-custom-cosial"><a target="_blank" href="https://www.instagram.com/carabas_auto.ru/">
-                            <img src="/assets/img/instagram.png" alt="icon instagram">
+
+
+                            <img src="../assets/img/instagram.png" alt="icon instagram">
                         </a><a target="_blank" href="https://vk.com/carabas_auto">
-                            <img src="/assets/img/vk.png" alt="icon vk">
+                            <img src="../assets/img/vk.png" alt="icon vk">
                         </a><a target="_blank" href="https://www.facebook.com/carabasauto.ru/">
-                            <img src="/assets/img/facebook.png" alt="icon facebook">
-                        </a></div><a href="tel:+74950088995" class="phone-link" onclick="ym(50828787, "
-                        reachgoal',="" 'clickzvonok' );="" return="" true;'="">+7 (495) 00-88-99-5</a>
+                            <img src="../assets/img/facebook.png" alt="icon facebook">
+                        </a>
+                    </div>
+                    <a href="tel:+74950088995" class="phone-link" onclick="ym(50828787, " reachgoal',="" 'clickzvonok'
+                        );="" return="" true;'="">+7 (495) 00-88-99-5</a>
                     <div class="mm-address">г. Москва, Карачаровское шоссе, 15, стр 1.</div>
                 </div>
             </div>
@@ -257,18 +287,13 @@
 
     <div class="wrapper-page mm-page mm-slideout" id="mm-0">
 
-
-
-
-
         <header class="header-happy_rem">
             <div class="container">
                 <div class="header-inner">
 
                     <div class="header-logo">
                         <div class="head-logo-text">
-                            Модельные авточехлы<br>по марке автомобиля
-                        </div>
+                            Модельные авточехлы<br>по марке автомобиля </div>
                     </div>
 
                     <div class="wrap-social">
@@ -293,7 +318,7 @@
                         </div>
                     </div>
 
-                    <a class="header-menu-toggle" href="https://carabas-auto.ru/#m-menu-main"><span></span></a>
+                    <a id="burger" class="header-menu-toggle"></a>
 
                 </div>
             </div>
@@ -316,7 +341,7 @@
                                                 <ul class="dropdown">
                                                     <li class="menu-item first">
                                                         <a class="menu-link"
-                                                            href="https://carabas-auto.ru/catalog/">Чехлы на сидения</a>
+                                                            href="../catalog.html">Чехлы на сидения</a>
                                                     </li>
                                                     <li class="menu-item first">
                                                         <a class="menu-link"
@@ -910,7 +935,7 @@
             });
         };
     </script>
-
+    <script src="../burger.js"></script>
 
 </body>
 
