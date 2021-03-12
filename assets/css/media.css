@@ -596,6 +596,11 @@
 }
 
 @media (max-width:575.98px) {
+    .mm-custom-bottom {
+        align-items: end;
+        margin-left: 20px;
+    }
+
     .section-title.st-small {
         text-align: center
     }
