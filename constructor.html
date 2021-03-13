@@ -1771,22 +1771,7 @@
     <script src="jquery.form.min.js.Без названия"></script>
     <script src="jquery.jgrowl.min.js.Без названия"></script>
 
-    <script>
-        var ReCaptchaCallbackV3 = function () {
-            grecaptcha.ready(function () {
-                grecaptcha.reset = grecaptchaExecute;
-                grecaptcha.reset();
-            });
-        };
-        function grecaptchaExecute() {
-            grecaptcha.execute("6LepqaYZAAAAABkjvvxRNFZOeUI9Z3QhckqHfOo-", { action: "ajaxform" }).then(function (token) {
-                var fieldsToken = document.querySelectorAll("[name ='g-recaptcha-response']");
-                Array.prototype.forEach.call(fieldsToken, function (el, i) {
-                    el.value = token;
-                });
-            });
-        };
-    </script>
+
 
 
     <div class="mm-wrapper__blocker mm-slideout"><a href="https://carabas-auto.ru/#mm-0"><span class="mm-sronly">Закрыть
@@ -2025,12 +2010,7 @@
             data-widget="callback"><span class="copyright-content">Хочу <span class="cbk-service-name">Envybox</span> на
                 свой сайт</span></a>
     </div>
-    <div id="__replain_widget"
-        style="position: fixed; inset: auto 20px 20px auto; width: 70px; height: 70px; z-index: 2147000000; background-color: transparent; border: none !important;">
-        <iframe id="__replain_widget_iframe" title="Re:plain" name="replain-frame" src="saved_resource(2).html"
-            scrolling="no" frameborder="0" allowfullscreen=""
-            style="display: block !important; visibility: visible !important; background: none transparent !important; opacity: 1 !important; overflow: visible !important; position: absolute !important; left: 0px !important; top: 0px !important; width: 100% !important; min-width: auto !important; max-width: 100vw !important; height: 100% !important; min-height: auto !important; max-height: 100% !important; z-index: 2147000000 !important; transition: none 0s ease 0s !important; margin: 0px !important; padding: 0px !important; border: none !important;"></iframe>
-    </div>
+
 
     <script src="burger.js"></script>
 

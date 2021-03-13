@@ -4230,22 +4230,7 @@
     <script src="jquery.form.min.js.Без названия"></script>
     <script src="jquery.jgrowl.min.js.Без названия"></script>
 
-    <script>
-        var ReCaptchaCallbackV3 = function () {
-            grecaptcha.ready(function () {
-                grecaptcha.reset = grecaptchaExecute;
-                grecaptcha.reset();
-            });
-        };
-        function grecaptchaExecute() {
-            grecaptcha.execute("6LepqaYZAAAAABkjvvxRNFZOeUI9Z3QhckqHfOo-", { action: "ajaxform" }).then(function (token) {
-                var fieldsToken = document.querySelectorAll("[name ='g-recaptcha-response']");
-                Array.prototype.forEach.call(fieldsToken, function (el, i) {
-                    el.value = token;
-                });
-            });
-        };
-    </script>
+
 
 
     <div class="mm-wrapper__blocker mm-slideout"><a href="https://carabas-auto.ru/#mm-0"><span class="mm-sronly">Закрыть
