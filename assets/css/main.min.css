@@ -8072,4 +8072,10 @@ footer .footer-policy .policy-link {
   overflow: hidden;
 }
 
+.null {
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
 /*==========  Mobile First  ==========*/
