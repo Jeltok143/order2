@@ -59,6 +59,76 @@
 
 <body id="body" class="mm-wrapper" style="--envybox-btn-background-color:rgba(244,67,54,0.8);">
 
+
+    
+    <div id="first" class="mfp-bg mfp-ready display-none"></div>
+    <div id="second" class="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready display-none" tabindex="-1" style="overflow: hidden auto;">
+        <div id="third"  class="mfp-container mfp-s-ready mfp-inline-holder display-none">
+            <div id="modal" class="mfp-content">
+                <div class="wrapper-form" id="form-order-new-chehol">
+                    <section class="consultation">
+                        <h3 class="section-title st-small">Заказать чехол</h3>
+
+                        <form class="consult-form" action="https://carabas-auto.ru/#" method="post"
+                            id="form-order-chechol">
+                            <div class="form-inputs">
+
+                                <div class="input-wrap">
+                                    <img src="assets/img/user.png" alt="icon">
+                                    <input type="text" name="name" value="" placeholder="Ваше ФИО *" aria-label="ФИО"
+                                        required="">
+                                    <span class="error_name"></span>
+                                </div>
+                                <div class="input-wrap">
+                                    <img src="assets/img/phone2.png" alt="icon">
+                                    <input type="tel" name="phone" value="" placeholder="Ваш телефон *"
+                                        aria-label="Телефон" required="">
+                                    <span class="error_name"></span>
+                                </div>
+                                <div class="input-wrap">
+                                    <img src="assets/img/email.png" alt="icon">
+                                    <input type="email" name="email" value="" placeholder="Ваша почта *"
+                                        aria-label="Email" required="">
+                                    <span class="error_name"></span>
+                                </div>
+                                <div class="input-wrap input-wrap__half">
+                                    <img src="assets/img/phone2.png" alt="icon">
+                                    <input type="text" name="marka" value="" placeholder="Марка, модель, год выпуска автомобиля *"
+                                        aria-label="Телефон" required="">
+                                    <span class="error_name"></span>
+                                </div>
+
+                                <div class="textarea-wrap">
+                                    <textarea name="message" placeholder="Ваш комментрий" aria-label="Сообщение"
+                                        tabindex="6" style="overflow-y: hidden; outline: none;"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-bottom">
+                                <div class="form-submit">
+                                    <button type="submit" class="submit-btn button">Отправить</button>
+                                </div>
+                                <div class="form-accept">
+                                    <label class="checkbox-wrap">
+                                        <input name="policy" type="checkbox" required="">
+                                        <span class="checkmark"></span>
+                                        <span class="checkbox-name">Согласен(а) с политикой конфиденциальности</span>
+                                        <span class="error"></span>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </form>
+                        <button title="Close (Esc)" type="button" class="mfp-close">×</button>
+                    </section>
+                </div>
+            </div>
+            <div class="mfp-preloader">Loading...</div>
+        </div>
+    </div>
+
+
+
     <div id="m-menu-main" class="mm-menu mm-menu_offcanvas mm-menu_pagedim-black" aria-hidden="true">
         <div class="mm-panels">
             <div id="menu-main" class="mm-panel mm-panel_opened-parent mm-hidden">

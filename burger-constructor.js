@@ -1,7 +1,4 @@
 let button = document.getElementById("burger");
-let closeBtn = document.querySelector('.homepage-top');
-let closeBtn2 = document.querySelector('.home__sales__section');
-let closeBtn3 = document.querySelector('.catalog-page');
 let btn = document.getElementById("btn-submit-img");
 let body = document.getElementById("body");
 let closeBtn4 = document.querySelector(".mfp-close");
@@ -19,17 +16,6 @@ button.onclick = function () {
   menu.classList.toggle('mm-menu_opened');
   body.createElement
 };
-
-closeBtn.onclick = function () {
-  let body = document.getElementById("body");
-  let menu = document.getElementById("m-menu-main");
-  body.classList.remove('mm-wrapper_opened'),
-    body.classList.remove('mm-wrapper-wrapper_blocking'),
-    body.classList.remove('mm-wrapper_background'),
-    body.classList.remove('mm-wrapper_opening');
-  menu.classList.remove('mm-menu_opened');
-};
-
 
 btn.onclick = function () {
   first.classList.remove('display-none');

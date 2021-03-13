@@ -2933,7 +2933,6 @@ html {
 
 .mfp-inline-holder .mfp-content,
 .mfp-ajax-holder .mfp-content {
-  width: 100%;
   cursor: auto;
 }
 
@@ -8063,6 +8062,14 @@ footer .footer-policy .policy-link {
   .product-card .product-gallery .gallery-photo {
     height: 420px;
   }
+}
+
+.display-none {
+  display: none;
+}
+
+.no-scroll {
+  overflow: hidden;
 }
 
 /*==========  Mobile First  ==========*/

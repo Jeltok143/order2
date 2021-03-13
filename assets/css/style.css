@@ -336,7 +336,7 @@
 
 .consultation .consult-form .form-inputs .input-wrap.input-wrap__half {
 	    width: -webkit-calc(50% - 5px);
-    width: calc(50% - 5px);
+    width: 100%;
 }
 
 .consultation .consult-form .form-inputs .input-wrap.input-wrap__half select {
