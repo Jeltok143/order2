@@ -2923,6 +2923,18 @@ html {
           box-sizing: border-box;
 }
 
+.mfp-container--order {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 0 8px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
 .mfp-container:before {
   content: '';
   display: inline-block;
@@ -5181,6 +5193,8 @@ footer .footer-policy .policy-link {
   line-height: 19px;
   text-decoration: underline;
   color: #d50032;
+  border: none;
+  background-color: transparent;
 }
 
 .examples-slider .example-item .item-order .order-btn:hover,
@@ -8095,6 +8109,10 @@ footer .footer-policy .policy-link {
   cursor: pointer;
   border: none;
   background-color: transparent;
+}
+
+.catalog-page {
+  margin-bottom: 70px;
 }
 
 /*==========  Mobile First  ==========*/
