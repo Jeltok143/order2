@@ -5176,6 +5176,13 @@ footer .footer-policy .policy-link {
   transition: border-bottom .2s ease;
 }
 
+.order-btn--mod {
+  font-size: 19px;
+  line-height: 19px;
+  text-decoration: underline;
+  color: #d50032;
+}
+
 .examples-slider .example-item .item-order .order-btn:hover,
 .examples-container .example-item .item-order .order-btn:hover {
   border-bottom: 1px solid transparent;
