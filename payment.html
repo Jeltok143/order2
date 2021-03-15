@@ -426,7 +426,7 @@
       <div class="page-top">
         <div class="container relative">
 
-          <h1 class="section-title st-large">Вакансии</h1>
+          <h1 class="section-title st-large">Оплата</h1>
 
         </div>
       </div>
@@ -440,8 +440,8 @@
                   itemprop="name">Главная</span></a>
             </li>
             <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-              <meta itemprop="position" content="2"><a class="breadcrumb-link" href="job.html" itemprop="item"><span
-                  itemprop="name">Вакансии</span></a>
+              <meta itemprop="position" content="2"><a class="breadcrumb-link" href="payment.html"
+                itemprop="item"><span itemprop="name">Способы оплаты</span></a>
             </li>
           </ul>
         </div>
@@ -453,23 +453,81 @@
 
 
 
-      <div class="container mt-3">
-        <section class="section__page__jobs ">
-          <div class="jobs__list__wrap">
-            <div class="jobs__list rows">
-              <div class="item_job">
-                <div class="title-job">Раскройщик на чехлы на автомобильные сидения (авточехлы)</div>
-                <div class="text-job">
-                  <p>Опыт работы с раскроем от года. (Допустимо без опыта раскроя, но с опытом шитья кожи и кож.
-                    зама.)&nbsp;Желательно работа с кожей и экокожей, а в идеале, если человек кроил ранее авточехлы,
-                    если нет, обучаем.&nbsp;</p>
+      <div class="container">
+
+
+
+        <div class="content mb-3">
+          <div class="text">
+            <p><strong>Уважаемые клиенты, мы работаем по предоплате 50%.</strong></p>
+
+            <ol>
+              <li>Наш менеджер уточнит все ваши пожелания, сформируем окончательную смету.</li>
+              <li>Вам будет выставлен счет на оплату 50% стоимости заказа, оплата производится через онлайн кассу, а это
+                значит будет предоставлен чек (в электронном виде) — это в свою очередь гарантия достоверности работы
+                нашей компании и спокойствие для вас). <strong>Мы принимаем к оплате наличные,&nbsp;банковские карты,
+                  переводы по реквизитам, для юридических лиц и оптовых клиентов возможна оплата безналичным
+                  платежом.</strong>
+                <div class="row mb-1 mt-1">
+                  <div class="col-md-3"><img alt="Visa" class="img-fluid"
+                      src="assets/img/visa.png" /></div>
+
+                  <div class="col-md-3"><img alt="Сбербанк" class="img-fluid"
+                      src="assets/img/sber.png" /></div>
+
+                  <div class="col-md-3"><img alt="MasterCard" class="img-fluid"
+                      src="assets/img/master.png" /></div>
+
+                  <div class="col-md-3"><img alt="Яндекс Деньги" class="img-fluid"
+                      src="assets/img/yd.png" /></div>
                 </div>
-                <a href="raskroishik.html" class="more link-more">Подробнее »</a>
-              </div>
-            </div>
+              </li>
+              <li>После оплаты вам на почту придет договор оказания услуг.</li>
+              <li>Срок изготовления комплекта чехлов составляет 5-7 рабочих дней.</li>
+              <li>Менеджер проинформирует вас о готовности изделий, после чего необходимо будет оплатить вторые 50%
+                стоимости заказа.</li>
+              <li>По готовности вы сможете забрать изделия самостоятельно в нашем офисе&nbsp;по адресу: г. Москва,
+                Карачаровское шоссе, дом 15, строение 1.</li>
+              <li>Также по данному адресу мы можем <strong>установить чехлы на ваш автомобиль</strong>. Установка
+                занимает 2-3 часа.</li>
+              <li>Либо оформить доставку любым удобным для вас способом.</li>
+            </ol>
+            <a class="button button-default" href="delivery.html">Подробнее о доставке</a>
           </div>
-        </section>
+        </div>
+
+
+
+        <div class="content mb-3">
+          <div class="form-payment-order">
+            <div class="caption section-title">Оплатить заказ</div>
+
+            <script src="https://securepay.tinkoff.ru/html/payForm/js/tinkoff_v2.js"></script>
+            <form id="tinkoffPay" name="TinkoffPayForm">
+              <input class="tinkoffPayRow" type="hidden" name="terminalkey" value="1592509619805">
+              <input class="tinkoffPayRow" type="hidden" name="frame" value="true">
+              <input class="tinkoffPayRow" type="hidden" name="language" value="ru">
+              <input class="tinkoffPayRow" type="hidden" name="receipt" value="">
+              <input class="tinkoffPayRow" type="number" placeholder="Сумма заказа" name="amount" required>
+              <input class="tinkoffPayRow" type="text" placeholder="Номер заказа" name="order" required>
+              <input class="tinkoffPayRow" type="text" placeholder="Модель автомобиля" name="description" required>
+              <input class="tinkoffPayRow" type="text" placeholder="ФИО плательщика" name="name" required>
+              <input class="tinkoffPayRow" type="email" placeholder="E-mail" name="email" required>
+              <input class="tinkoffPayRow" type="tel" placeholder="Контактный телефон" name="phone" required>
+              <input class="tinkoffPayRow" type="submit" value="Оплатить">
+            </form>
+          </div>
+        </div>
+
+
+
+
+
+
       </div>
+
+
+
 
     </section>
 
