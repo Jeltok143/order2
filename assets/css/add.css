@@ -138,6 +138,7 @@ h2 {
 /*GRID PRODUCT*/
 .examples-container .example-item .item-photo {
     position: relative;
+    cursor: default;
 }
 .examples-container .example-item .item-photo .color-popup {
     width: 100px;
